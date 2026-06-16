@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Календарь бронирования команды Improv Lab на ваше мероприятие. Выберите дату, время и формат шоу, оставьте контакты – мы свяжемся с вами.">
+    <meta name="keywords" content="бронирование спектакля, заказать шоу, импровизация, корпоратив, свадьба, юбилей, конференция, Improv Lab">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://improvlab.ru/calendar">
+    <meta property="og:title" content="Календарь бронирования | Improv Lab">
+    <meta property="og:description" content="Забронируйте команду Improv Lab на ваше событие: выберите дату в календаре и оставьте контакты.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://improvlab.ru/calendar">
+    <meta property="og:image" content="https://improvlab.ru/public/teamSocial.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Календарь бронирования | Improv Lab">
+    <meta name="twitter:description" content="Забронируйте дату для импровизационного шоу под ваше событие.">
+    <meta name="twitter:image" content="https://improvlab.ru/public/teamSocial.jpg">
+    <title>Календарь бронирования | Improv Lab</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700;900&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="calendar-styles.css">
+</head>
+<body>
+    <header class="header calendar-colored">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="logo">Improv Lab</a>
+                <span class="calendar-title">Закажите спектакль мечты</span>
+            </div>
+            <div class="nav-links">
+                <a href="/afisha" class="nav-link">Афиша</a>
+                <a href="/press" class="nav-link">Пресса</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="calendar-main">
+        <div class="container calendar-layout">
+            <div class="step-label mobile-only">Шаг 1 · Выберите дату</div>
+            <section class="calendar-pane" aria-label="Календарь">
+                <div class="calendar-header">
+                    <button class="cal-btn" id="prevMonth" aria-label="Предыдущий месяц"><i class="fas fa-chevron-left"></i></button>
+                    <h2 class="calendar-month" id="calendarMonth">Месяц ГГГГ</h2>
+                    <button class="cal-btn" id="nextMonth" aria-label="Следующий месяц" disabled><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="calendarGrid" aria-live="polite"></div>
+                <div class="calendar-legend">
+                    <span class="legend-item"><i class="legend-dot free"></i> Доступно</span>
+                    <span class="legend-item"><i class="legend-dot partial"></i> Частично занято</span>
+                    <span class="legend-item"><i class="legend-dot busy"></i> Занято/выходной</span>
+                </div>
+            </section>
+
+            <div class="step-label mobile-only">Шаг 2 · Заполните форму</div>
+            <aside class="booking-pane" aria-label="Форма бронирования">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label class="form-label">Выбранная дата</label>
+                        <input type="text" id="selectedDate" readonly placeholder="Выберите дату в календаре">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime" class="form-label">Начало (10:00–01:00)</label>
+                            <input type="time" id="startTime" min="10:00" max="23:59" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime" class="form-label">Окончание</label>
+                            <input type="time" id="endTime" min="10:00" max="01:00" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventType" class="form-label">Тип мероприятия</label>
+                        <select id="eventType">
+                            <option value="corporate">Корпоратив</option>
+                            <option value="wedding">Свадьба</option>
+                            <option value="birthday">День рождения / Юбилей</option>
+                            <option value="conference">Конференция / Форум</option>
+                            <option value="gastro">Gastro Improv</option>
+                            <option value="custom">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="form-label">Комментарий</label>
+                        <textarea id="comment" rows="4" placeholder="Опишите детали: площадка, аудитория, пожелания..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Ваше имя *</label>
+                            <input id="contactName" type="text" required placeholder="Как к вам обращаться">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone" class="form-label">Телефон или Email *</label>
+                            <input id="contactPhone" type="text" required placeholder="Телефон или email для связи">
+                        </div>
+                    </div>
+                    <div class="notice">С 22:00 до 01:00 применяется вечерний тариф. Между событиями пауза минимум 2 часа.</div>
+                    <button type="submit" class="btn btn-primary full" id="submitBooking"><i class="fas fa-calendar-check"></i> Отправить запрос на бронирование</button>
+                </form>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="calendar-footer">
+        <div class="container">
+            <div class="footer-min">
+                <div class="links">
+                    <a href="/">Главная</a>
+                    <a href="/press">Пресса</a>
+                    <a href="/group">Набор в группу</a>
+                    <a href="/booking">Заказать</a>
+                </div>
+                <div class="social">
+                    <a href="https://t.me/svoi_improv" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.instagram.com/improv.lab/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/improvlabb" target="_blank" aria-label="VK"><i class="fab fa-vk"></i></a>
+                </div>
+                <div class="copy">&copy; 2025 Improv Lab</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calendar-script.js"></script>
+</body>
+</html>
+
+

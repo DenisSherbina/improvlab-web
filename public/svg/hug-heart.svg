@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="512" height="512">
+  <!-- Background (optional, light gray to match the preview); remove if you need transparent -->
+  <rect width="100%" height="100%" fill="#f3f3f3"/>
+  
+  <!-- Two heads -->
+  <circle cx="150" cy="95" r="70" fill="#000000"/>
+  <circle cx="330" cy="95" r="70" fill="#000000"/>
+  
+  <!-- Heart body -->
+  <path d="
+    M240 388
+    C160 304 90 262 90 210
+    C90 150 150 140 200 180
+    C221 197 240 220 240 220
+    C240 220 259 197 280 180
+    C330 140 390 150 390 210
+    C390 262 320 304 240 388
+    Z" fill="#000000"/>
+  
+  <!-- Inner 'hug' groove -->
+  <path d="
+    M120 255
+    Q200 320 240 380
+    Q320 305 370 260" 
+    fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

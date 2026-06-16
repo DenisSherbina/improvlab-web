@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новости театра Improv Lab - свежие анонсы, отчёты о мероприятиях, истории из жизни команды импровизаторов.">
+    <meta name="keywords" content="новости театра, импровизация, анонсы мероприятий, театральные события, Improv Lab">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Новости Improv Lab - Театр Импровизации">
+    <meta property="og:description" content="Следите за новостями театра Improv Lab. Свежие анонсы, репортажи с мероприятий и истории из жизни команды.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://improvlab.ru/news">
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <title>Новости | Improv Lab - Театр Импровизации</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="news-styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="logo">Improv Lab</a>
+            </div>
+            <div class="nav-links">
+                <a href="/#about" class="nav-link">О нас</a>
+                <a href="/#team" class="nav-link">Команда</a>
+                <a href="/afisha" class="nav-link">Афиша</a>
+                <a href="/news" class="nav-link active">Новости</a>
+                <a href="/#format" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="news-hero">
+        <div class="container hero-container">
+            <div class="news-hero-content">
+                <h1 class="news-hero-title">Пресса о нас</h1>
+                <div class="news-filters">
+                    <button class="filter-btn active" data-filter="all">Все новости</button>
+                    <button class="filter-btn" data-filter="events">События</button>
+                    <button class="filter-btn" data-filter="team">Команда</button>
+                    <button class="filter-btn" data-filter="behind">Behind The Scenes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="news-main">
+        <div class="container">
+            <div class="news-grid" id="newsGrid"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">Improv Lab</div>
+                        <p class="footer-description">Профессиональное сообщество импровизаторов, создающее пространство для живого общения, игр и творчества без сценариев.</p>
+                        <div class="footer-social">
+                            <a href="https://t.me/svoi_improv" class="social-icon telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i></a>
+                            <a href="https://www.instagram.com/improv.lab/" class="social-icon instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="https://vk.com/improvlabb" class="social-icon vk" target="_blank" rel="noopener"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Навигация</h4>
+                            <ul>
+                                <li><a href="/#about">О театре</a></li>
+                                <li><a href="/#team">Команда</a></li>
+                                <li><a href="/afisha">Афиша</a></li>
+                                <li><a href="/group">Набор в группу</a></li>
+                                <li><a href="/news">Новости</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Быстрые ссылки</h4>
+                            <ul>
+                                <li><a href="/#gastro-improv">Gastro Improv</a></li>
+                                <li><a href="/#masquerade">Маскарад</a></li>
+                                <li><a href="/#format">Сотрудничество</a></li>
+                                <li><a href="/#format">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Improv Lab. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться наверх">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="news-script.js"></script>
+    
+</body>
+</html>
+
+

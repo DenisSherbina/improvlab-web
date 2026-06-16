@@ -1,0 +1,75 @@
+{
+  "name": "improvlab-landing",
+  "version": "1.0.0",
+  "description": "Современный лендинг для команды импровизаторов Improv Lab",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=4000 --open=/index.html",
+    "dev": "npx live-server --port=4000 --open=/index.html --watch=.",
+    "build": "echo 'Building static site...' && npm run minify",
+    "minify": "npx html-minifier-terser --input-dir . --output-dir dist --file-ext html --collapse-whitespace --remove-comments --minify-css --minify-js",
+    "lint": "npx htmlhint *.html && npx stylelint *.css",
+    "format": "npx prettier --write .",
+    "serve": "npx http-server -p 8080 -c-1",
+    "deploy": "echo 'Deploy to your hosting service'",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "improv",
+    "improvlab",
+    "landing",
+    "theater",
+    "improvisation",
+    "acting",
+    "creative",
+    "community",
+    "telegram-bot",
+    "social-media"
+  ],
+  "author": {
+    "name": "Improv Lab Team",
+    "email": "contact@improvlab.ru",
+    "url": "https://t.me/Improv_labbot"
+  },
+  "license": "MIT",
+  "homepage": "https://improvlab.ru",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/improvlab/landing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/improvlab/landing/issues",
+    "email": "contact@improvlab.ru"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "htmlhint": "^1.1.4",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.0",
+    "stylelint": "^15.10.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "config": {
+    "port": 4000
+  },
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "README.md",
+    "package.json"
+  ]
+}
