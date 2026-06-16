@@ -1,17 +1,44 @@
-// Splash Screen
+// Splash Screen — только при первом визите или если прошло 24 часа
+const SPLASH_STORAGE_KEY = 'improvlab_splash_last_seen';
+const SPLASH_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+
+function shouldShowSplashScreen() {
+    try {
+        const lastSeen = localStorage.getItem(SPLASH_STORAGE_KEY);
+        if (!lastSeen) return true;
+        return Date.now() - Number(lastSeen) >= SPLASH_COOLDOWN_MS;
+    } catch {
+        return true;
+    }
+}
+
+function hideSplashScreen(splashScreen) {
+    splashScreen.classList.add('fade-out');
+    setTimeout(() => {
+        splashScreen.style.display = 'none';
+    }, 500);
+}
+
+function markSplashScreenSeen() {
+    try {
+        localStorage.setItem(SPLASH_STORAGE_KEY, String(Date.now()));
+    } catch {
+        // localStorage недоступен — игнорируем
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const splashScreen = document.getElementById('splashScreen');
     
     if (splashScreen) {
-        // Показываем заставку на 2 секунды
-        setTimeout(() => {
-            splashScreen.classList.add('fade-out');
-            
-            // Полностью убираем элемент после анимации
+        if (!shouldShowSplashScreen()) {
+            splashScreen.style.display = 'none';
+        } else {
             setTimeout(() => {
-                splashScreen.style.display = 'none';
-            }, 500); // Время совпадает с transition в CSS
-        }, 2000); // 2 секунды показа
+                hideSplashScreen(splashScreen);
+                markSplashScreenSeen();
+            }, 2000);
+        }
     }
     
     // Event Modal functionality
